@@ -4,6 +4,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { RxArrowBottomLeft,RxArrowTopRight } from "react-icons/rx";
 import { Line } from 'react-chartjs-2';
+import curvyBg from '../../images/ccbg.jpg'
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -144,16 +145,18 @@ const TransactionDetails = ({ data,isOpen }) => {
         ) :
         (data.length && isOpen) && (
           <div className='mt-20'>
-            <div className='text-center sm1:text-[1.2em] sm2:text-[1.5em] font-extralight italic'>Details of Transactions made on { moment(data[0].date).format('MMMM Do YYYY') }</div>
+            <div className='absolute h-full w-full bg-center sm1:bg-contain md:bg-cover bg-no-repeat blur-md' style={{ backgroundImage:`url(${curvyBg})`}}>.</div>
+            <div className='text-center sm1:text-[1.2em] sm2:text-[1.5em] font-bold italic z-20 relative pt-20'>Details of Transactions made on { moment(data[0].date).format('MMMM Do YYYY') }</div>
             <div className='flex sm1:flex-col lg:flex-row justify-center mt-4'>
-              <div className='flex flex-col'>
+              <div className='flex flex-col relative'>
                 {/*01. Number of transactions */}
                 <div 
                   data-aos="fade-up"
                   data-aos-duration="1000"
                   data-aos-delay="100"
-                  className='border-[0.1px] border-green-500/50 shadow-green-500 bg-green-800/20 rounded-xl sm1:m-2 sm3:m-4 sm1:p-2 md:p-10'
-                >
+                  className='relative bg-clip-padding backdrop-filter backdrop-blur-3xl bg-opacity-20 border border-gray-100/20
+                  rounded-xl sm1:m-2 sm3:m-4 sm1:p-2 md:p-10'
+                > 
                   <div className=''>
                     <div className='flex sm1:flex-col'>
                       <div className='text-center sm1:text-xl md:text-3xl xl:text-2xl 2xl:text-3xl ml-2 font-light'>Number of Transactions</div>
@@ -170,7 +173,7 @@ const TransactionDetails = ({ data,isOpen }) => {
                   data-aos="fade-up"
                   data-aos-duration="1000"
                   data-aos-delay="300"
-                  className='border-[0.1px] border-green-500/50 shadow-green-500 bg-green-800/20 rounded-xl sm1:m-2 sm3:m-4 sm1:p-2 md:p-10 flex-grow'
+                  className='bg-gray-900 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-20 border border-white/40 rounded-xl sm1:m-2 sm3:m-4 sm1:p-2 md:p-10 flex-grow'
                 >
                   <div className=''>
                     <div className='flex sm1:flex-col md:flex-row'>
@@ -199,11 +202,11 @@ const TransactionDetails = ({ data,isOpen }) => {
                   data-aos="fade-up"
                   data-aos-duration="1000"
                   data-aos-delay="500"
-                  className='bg-black border-[0.1px] border-green-500/50 shadow-green-500 bg-green-800/20 rounded-xl sm1:m-2 sm3:m-4 sm1:p-2 md:p-10'
+                  className='bg-gray-900 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-20 border border-white/40 rounded-xl sm1:m-2 sm3:m-4 sm1:p-2 md:p-10'
                 >
                   <div className=''>
                     <div className='flex sm1:flex-col md:flex-row'>
-                      <div className='text-center sm1:text-xl md:text-3xl xl:text-2xl ml-2 w-full2xl:text-3xl'>Today&apos;s transactions</div>
+                      <div className='text-center sm1:text-xl md:text-3xl xl:text-2xl ml-2 w-full 2xl:text-3xl'>Today&apos;s transactions</div>
                     </div>
                     <div>
                       { 
@@ -230,7 +233,7 @@ const TransactionDetails = ({ data,isOpen }) => {
                   data-aos="fade-up"
                   data-aos-duration="1000"
                   data-aos-delay="700"
-                  className='text-4xl border-[0.1px] border-green-500/50 shadow-green-500 bg-green-800/20 rounded-xl sm1:m-2 sm3:m-4 sm1:p-2 md:p-10 sm1:block'
+                  className='text-4xl bg-gray-900 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-20 border border-white/40 rounded-xl sm1:m-2 sm3:m-4 sm1:p-2 md:p-10 sm1:block'
                 >
                   <div className='flex justify-center sm1:h-[500px] lg:w-[400px] xl:w-[500px]'>
                     <Line
