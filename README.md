@@ -5,6 +5,7 @@
 
 ## Overview
 This React application provides a GitHub contribution heatmap-like calendar, displaying all transactions made within the last year interactively. Users can click on any date to track the expenses incurred on that particular day.
+Documentation for this project are available at [Docs](https://expense-tracker-docs.vercel.app/docs/Overview)
 
 ## Features
 - **Interactive Calendar**: Users can view all transactions made in the last year by navigating through an interactive calendar.
