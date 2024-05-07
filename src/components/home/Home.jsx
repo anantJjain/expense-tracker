@@ -78,7 +78,7 @@ const Home = () => {
       await setColors();
       await setTimeout(()=>{
         setLoading(false)   //setting an initial load time for src/transaction to be queried properly
-      },4000)
+      },6000)
       await calcTotalSpending()
     }
     loadData();
@@ -89,9 +89,6 @@ const Home = () => {
       {
         !isLoading ?  //Conditional rendering - checks if the load time is over,if not renders loader
           <div className='text-white pb-[20px]font-heading'>
-            <div className='absolute xl:top-[160vh] 2xl:top-[155vh] 3xl:top-[150vh] 4xl:top-[145vh] m-auto sm1:hidden xl:block left-1/2 -translate-x-1/2'>
-              <ToolTip tooltipView={tooltipView} date={clickedDate} transactionsCount={transactionsCount} />
-            </div>
             <div className='sm1:hidden md:flex justify-between sm1:pr-2 sm1:pl-2 md:pr-10 md:pl-10 mt-10 border-[0.1px] border-white/40 w-4/5 m-auto p-4 rounded-xl relative z-10'>
               <div>
                 <a href="/localhost:3000" alt="" className='sm1:text-xl md:text-xl text-white p-2'>Expense Tracker</a>
@@ -174,7 +171,7 @@ const Home = () => {
                 data-aos-duration="1000"
                 className='w-full text-[#FEBB96]/80 text-center flex flex-col'
               >
-                <div className='sm1:text-[2.8em] sm2:text-[3em] md:text-[4em] 2xl:text-[6em] leading-[0.9em]'>{ yearlyDebit.toLocaleString('en-IN', { style: 'currency', currency: 'INR' }) }</div> 
+                <div className='sm1:text-[2.8em] sm2:text-[3em] md:text-[4em] 2xl:text-[5em] leading-[0.9em]'>{ yearlyDebit.toLocaleString('en-IN', { style: 'currency', currency: 'INR' }) }</div> 
                 {/* Converting the number to currency string using .toLocaleString() method */}
                 <div className='text-white/50 sm1:text-[1.2em] md:text-[1.5em]'>Amount debited in last 1 year</div>
               </div>
@@ -184,7 +181,7 @@ const Home = () => {
                 data-aos-duration="1000"
                 className='w-full text-[#FEBB96]/80 text-center flex flex-col sm1:mt-10 lg:mt-0'
               >
-                <div className='sm1:text-[2.8em] sm2:text-[3em] md:text-[4em] 2xl:text-[6em] leading-[0.9em]'>{ yearlyCredit.toLocaleString('en-IN', { style: 'currency', currency: 'INR' }) }</div>
+                <div className='sm1:text-[2.8em] sm2:text-[3em] md:text-[4em] 2xl:text-[5em] leading-[0.9em]'>{ yearlyCredit.toLocaleString('en-IN', { style: 'currency', currency: 'INR' }) }</div>
                 <div className='text-white/50 sm1:text-[1.2em] md:text-[1.5em]'>Amount credited in last 1 year</div>
               </div>
             </div>  
@@ -194,10 +191,13 @@ const Home = () => {
               data-aos="fade-up"
               data-aos-delay="700"
               data-aos-duration="1000"
-              className="mt-8 flexp-10 pb-2 rounded-xl overflow-x-auto overflow-y-hidden whitespace-nowrap"
+              className="mt-8 flexp-10 pb-2 rounded-xl overflow-x-auto overflow-y-hidden whitespace-nowrap relative"
               //overflow-x-auto,nowrap allows the calender div to scroll on smaller devices
             >
-              <div className='p-8 w-fit m-auto rounded-xl'>
+              <div className='z-10 absolute m-auto sm1:hidden xl:block left-1/2 -translate-x-1/2 top-0'>
+                <ToolTip tooltipView={tooltipView} date={clickedDate} transactionsCount={transactionsCount} />
+              </div>
+              <div className='p-8 w-fit m-auto rounded-xl mt-10'>
                 <div className='flex justify-between ml-12 w-11/12'>
                   {
                     months.map((_,i) => { //showing the months on the heatmap
