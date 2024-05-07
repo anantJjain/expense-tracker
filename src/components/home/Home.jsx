@@ -91,11 +91,11 @@ const Home = () => {
           <div className='text-white pb-[20px]font-heading'>
             <div className='sm1:hidden md:flex justify-between sm1:pr-2 sm1:pl-2 md:pr-10 md:pl-10 mt-10 border-[0.1px] border-white/40 w-4/5 m-auto p-4 rounded-xl relative z-10'>
               <div>
-                <a href="/localhost:3000" alt="" className='sm1:text-xl md:text-xl text-white p-2'>Expense Tracker</a>
+                <a href="/" alt="" className='sm1:text-xl md:text-xl text-white p-2'>Expense Tracker</a>
               </div>
               <div>
-                <a href="/localhost:3000" alt="" target="_blank" className='text-white text-center sm1:text-lg md:text-xl p-2 pr-4'>Github</a>
-                <a href="/localhost:3000" alt="" target="_blank" className='text-black text-center sm1:text-lg md:text-xl bg-gradient-to-r from-[#F4B3BF] to-[#C2F2F1] pt-1 pb-1 pl-10 pr-10 rounded-xl'>Docs</a>
+                <a href="https://github.com/anantJjain/expense-tracker" alt="" target="_blank" rel="noreferrer" className='text-white text-center sm1:text-lg md:text-xl p-2 pr-4'>Github</a>
+                <a href="https://expense-tracker-docs.vercel.app/docs/Overview" rel="noreferrer" alt="" target="_blank" className='text-black text-center sm1:text-lg md:text-xl bg-gradient-to-r from-[#F4B3BF] to-[#C2F2F1] pt-1 pb-1 pl-10 pr-10 rounded-xl'>Docs</a>
               </div>
             </div>
             <div className="blur-3xl bg-gradient-to-b from-red-700/30 to-black absolute top-0 sm1:h-[20vh] md:h-[30vh] lg:h-[50vh] xl:h-[40vh] sm1:w-full lg:w-1/2 z-0"></div>
