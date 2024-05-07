@@ -3,7 +3,7 @@ import moment from 'moment';
 import AOS from "aos"; //AOS = animate on scroll which the library used for scroll animations
 import "aos/dist/aos.css";
 import Marquee from "react-fast-marquee";
-// import Lottie from 'lottie-react';
+import Lottie from 'lottie-react';
 import '../../App.css'
 import { transactions } from '../../transaction';
 import TransactionDetails from '../date-grid/TransactionDetails';
@@ -108,7 +108,6 @@ const Home = () => {
                   data-aos="fade-up"
                   data-aos-duration="1000"  //duration for the AOS animation to get completed
                   className='sm1:text-[4em] md:text-[6.5em] leading-[0.9em] tracking-tight font-heading m-auto sm1:mt-20 lg:mt-40'
-                  data-testid="home_header"
                 >
                   Pay & Invest Your Money Better
                 </div>
@@ -288,7 +287,7 @@ const Home = () => {
 
           //Loader on initial load time
           <div className='text-4xl text-white text-center h-screen overflow-hidden'>
-            {/* <Lottie animationData={loader} className="scale-75"/> */}
+            <Lottie animationData={loader} className="scale-75"/>
           </div>
       }
     </>
