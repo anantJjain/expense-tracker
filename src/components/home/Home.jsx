@@ -85,10 +85,10 @@ const Home = () => {
   },[])
   
   return (
-    <>
+    <div>
       {
         !isLoading ?  //Conditional rendering - checks if the load time is over,if not renders loader
-          <div className='text-white pb-[20px]font-heading'>
+          <div className='text-white pb-[20px] font-heading'>
             <div className='sm1:hidden md:flex justify-between sm1:pr-2 sm1:pl-2 md:pr-10 md:pl-10 mt-10 border-[0.1px] border-white/40 w-4/5 m-auto p-4 rounded-xl relative z-10'>
               <div>
                 <a href="/" alt="" className='sm1:text-xl md:text-xl text-white p-2'>Expense Tracker</a>
@@ -284,14 +284,14 @@ const Home = () => {
               }
             </div>
           </div> : 
-
-          //Loader on initial load time
-          <div className='text-4xl text-white text-center h-screen overflow-hidden'>
-            <Lottie animationData={loader} className="scale-75"/>
-          </div>
+          (
+            //Loader on initial load time
+            <div className='text-4xl text-white text-center h-screen overflow-hidden'>
+              <Lottie animationData={loader} className="scale-75"/>
+            </div>
+          )
       }
-    </>
-    
+    </div> 
   );
 }
 export default Home;

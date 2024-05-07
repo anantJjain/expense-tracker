@@ -137,7 +137,7 @@ const TransactionDetails = ({ data,isOpen }) => {
   return ( 
     <div>
       {
-        data.length===0 && isOpen ? ( //checks whether any transaction on the given date exists or not
+        (data.length===0 && isOpen) ? ( //checks whether any transaction on the given date exists or not
           <div className='text-4xl text-white text-center pb-20'>
             <div className='text-[80px] font-bold text-red-500'>Whoops!</div>
             <div className='mt-8'>No transactions made on this date</div>
@@ -149,7 +149,7 @@ const TransactionDetails = ({ data,isOpen }) => {
             <div className='text-center sm1:text-[1.2em] sm2:text-[1.5em] font-bold italic z-20 relative pt-20'>Details of Transactions made on { moment(data[0].date).format('MMMM Do YYYY') }</div>
             <div className='flex sm1:flex-col lg:flex-row justify-center mt-4'>
               <div className='flex flex-col relative'>
-                {/*01. Number of transactions */}
+                {/*Number of transactions */}
                 <div 
                   data-aos="fade-up"
                   data-aos-duration="1000"
@@ -181,15 +181,15 @@ const TransactionDetails = ({ data,isOpen }) => {
                     </div>
                     <div className='flex justify-center items-center mt-4'>
                       <span className={`sm1:text-[2em] sm2:text-[2.5em] md:text-[3em] ${calcDateSpending(data).toFixed(2)<0 ? 'text-red-600' : 'text-green-500'}`}> {/* toFixed(n) - round off to 'n' decimal digits  */}
-                        <span className=''>{calcDateSpending(data).toFixed(2)<0 ? '-' : '+'}</span> {/* conditionally adding + or - sign in case of debit and credit respectively  */}
-                        <span className=''>&nbsp;{Math.abs(calcDateSpending(data).toFixed(2)).toLocaleString('en-US', { style: 'currency', currency: 'INR' })}&nbsp;</span>
+                        <span data-testid="total-amount-today-sign" className=''>{calcDateSpending(data).toFixed(2)<0 ? '-' : '+'}</span> {/* conditionally adding + or - sign in case of debit and credit respectively  */}
+                        <span data-testid="total-amount-today-value" className=''>&nbsp;{Math.abs(calcDateSpending(data).toFixed(2)).toLocaleString('en-US', { style: 'currency', currency: 'INR' })}&nbsp;</span>
                       </span>
                       <span>
                         {/* showing different arrows for debit and credit  */}
                         { 
                           calcDateSpending(data) < 0 ? 
-                            <span className='mt-4 sm1:text-[2em] md:text-[3em]  font-bold text-red-600'><RxArrowTopRight/></span> : 
-                            <span className='mt-4 sm1:text-[2em] md:text-[3em]  font-bold text-green-500'><RxArrowBottomLeft/></span> 
+                            <span data-testid="arrow-icon"  className='mt-4 sm1:text-[2em] md:text-[3em] font-bold text-red-600'><RxArrowTopRight/></span> : 
+                            <span data-testid="arrow-icon"  className='mt-4 sm1:text-[2em] md:text-[3em] font-bold text-green-500'><RxArrowBottomLeft/></span> 
                         }
                       </span>
                     </div>
@@ -199,6 +199,7 @@ const TransactionDetails = ({ data,isOpen }) => {
               <div className='flex 2xl:flex-row sm1:flex-col'>
                 {/* Today transactions */}
                 <div 
+                  data-testid="today-transactions"
                   data-aos="fade-up"
                   data-aos-duration="1000"
                   data-aos-delay="500"
@@ -230,6 +231,7 @@ const TransactionDetails = ({ data,isOpen }) => {
                 </div>
                 {/* Line Chart */}
                 <div 
+                  data-testid="transaction-chart"
                   data-aos="fade-up"
                   data-aos-duration="1000"
                   data-aos-delay="700"
